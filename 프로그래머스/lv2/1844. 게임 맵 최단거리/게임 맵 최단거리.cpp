@@ -7,11 +7,6 @@ int n,m;
 int solution(vector<vector<int> > maps)
 {
     //maps[n][m] = 1: 길, 0: 벽
-    //maps[0][0]에서 시작
-    //maps[n-1][m-1]에 도착
-    //최단거리를 구하라
-    //길이 없으면 -1을 리턴
-
     //BFS
     n = maps.size();
     m = maps[0].size();
