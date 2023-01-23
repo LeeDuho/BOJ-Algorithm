@@ -46,7 +46,7 @@ int main()
     cout << -1 << endl;
   }
   else{   
-    cout << binary_search(0,1000000000) << "\n";
+    cout << binary_search(0,1000000) << "\n";
   }
 
   return 0;
