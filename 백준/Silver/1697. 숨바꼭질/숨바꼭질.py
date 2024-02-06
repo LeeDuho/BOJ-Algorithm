@@ -1,24 +1,22 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
 
 n, k = map(int, input().split())
 
-queue = []
+queue = deque()
+queue.append(n)
+
 visited = [0] * 100001
-queue.append((n, 0))
-visited[n] = 1
 
 while queue:
-    now, time = queue.pop(0)
+    now = queue.popleft()
     if now == k:
-        print(time)
+        print(visited[now])
         break
-    if now-1 >= 0 and not visited[now-1]:
-        queue.append((now-1, time+1))
-        visited[now-1] = 1
-    if now+1 <= 100000 and not visited[now+1]:
-        queue.append((now+1, time+1))
-        visited[now+1] = 1
-    if now*2 <= 100000 and not visited[now*2]:
-        queue.append((now*2, time+1))
-        visited[now*2] = 1
+    for next in (now-1, now+1, now*2):
+        if 0 <= next < 100001 and not visited[next]:
+            visited[next] = visited[now] + 1
+            queue.append(next)
+
+            
