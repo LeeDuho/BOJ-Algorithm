@@ -11,11 +11,6 @@ for i in range(1,v+1):
   for j in range(1, len(temp)-1,2):
     tree[temp[0]].append([temp[j],temp[j+1]])
 
-# for _ in range(v):
-#     node = list(map(int, input().split()))[:-1]
-#     for i in range(1, len(node)//2 + 1):
-#         tree[node[0]].append([node[i*2 - 1], node[i*2]])
-
 
 def dfs(i,total_len):
 
@@ -28,11 +23,6 @@ def dfs(i,total_len):
 visited = [-1] * (v+1)
 visited[1] = 0
 dfs(1,0)
-
-# temp = 1
-# for i in range(1, v+1):
-#   if visited[i] > visited[temp]:
-#     temp = i
 
 temp = visited.index(max(visited))
 
